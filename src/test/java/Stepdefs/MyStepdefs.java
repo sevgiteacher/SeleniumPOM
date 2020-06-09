@@ -8,56 +8,55 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import static Pages.LoginPage.*;
-import static Pages.SignInPage.*;
 import static Pages.WelcomePage.*;
 
-
 public class MyStepdefs {
-    static WebDriver driver;
-    static WebDriverWait wait;
+
+    WebDriver driver;
+    WebDriverWait wait;
 
     @Before
-    public void driverSetUp(){
+    public void setUp() {
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
-        driver= new ChromeDriver();
-        wait= new WebDriverWait(driver, 20);
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, 10);
     }
 
     @After
-    public void tearDown() throws InterruptedException {
+    public  void and(){
         driver.quit();
-        Thread.sleep(2000);
-    }
-    @Given("user navigates cyclos_demo_website")
-    public void userNavigates() {
-        navigate(driver);
     }
 
-    @When("user clicks Sign_in area")
-    public void userClicksArea() {
-        signInButton(wait);
+    @Given("the user navigates to {string}")
+    public void theUserNavigatesTo(String url) {
+        navigate(driver,url);
     }
 
-    @And("user enters user_name to Login_Name area")
-    public void userEntersToArea() {
-        loginNameButton(wait);
+    @When("the user enters username {string}")
+    public void theUserEntersUsername(String userName) {
+        enterUserName(wait,userName);
     }
 
-    @And("user enters password to Password area")
-    public void userEntersPasswordToPasswordArea() {
-        loginPasswordButton(wait);
+    @And("the user enters password {string}")
+    public void theUserEntersPassword(String password) {
+        enterPassword(wait,password);
     }
 
-    @And("user clicks Login area")
-    public void userClicksLoginArea() {
-        signInClickButton(wait);
+    @And("the user clicks sign in button")
+    public void theUserClicksSignInButton() {
+        clickButton(driver);
     }
 
-    @Then("user views text")
-    public void userViews() {
-        getText(wait);
+    @Then("the user views {string}")
+    public void theUserViews(String expectedMessage) {
+        viewsMessage(wait,expectedMessage);
+    }
+
+    @Then("the user views errorMessage {string}")
+    public void theUserViewsErrorMessage(String expectedErrorMessage) {
+        viewsErrorMessage(wait,expectedErrorMessage);
     }
 }
