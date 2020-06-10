@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static Pages.LoginPage.*;
 import static Pages.WelcomePage.*;
 import static Pages.DragDropPage.*;
+import static Pages.ToolsQAPage.*;
 
 public class MyStepdefs {
 
@@ -51,11 +52,6 @@ public class MyStepdefs {
         clickButton(driver);
     }
 
-//    @Then("the user views {string} to {string} area")
-//    public void theUserViewsToArea(String expectedMessage, String area) {
-//        viewsMessage(wait,expectedMessage,area);
-//    }
-
     @Then("the user views {string}")
     public void theUserViews(String expectedMessage) {
         viewsMessage(wait,expectedMessage);
@@ -77,5 +73,8 @@ public class MyStepdefs {
 
     }
 
-
+    @When("the user slides the slider")
+    public void theUserSlidesTheSlider() {
+        slides(driver);
+    }
 }
