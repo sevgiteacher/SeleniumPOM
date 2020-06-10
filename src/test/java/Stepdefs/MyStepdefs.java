@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static Pages.LoginPage.*;
 import static Pages.WelcomePage.*;
+import static Pages.DragDropPage.*;
 
 public class MyStepdefs {
 
@@ -31,7 +32,7 @@ public class MyStepdefs {
     }
 
     @Given("the user navigates to {string}")
-    public void theUserNavigatesTo(String url) {
+    public void theUserNavigatesTo(String url) throws InterruptedException {
         navigate(driver,url);
     }
 
@@ -50,6 +51,11 @@ public class MyStepdefs {
         clickButton(driver);
     }
 
+//    @Then("the user views {string} to {string} area")
+//    public void theUserViewsToArea(String expectedMessage, String area) {
+//        viewsMessage(wait,expectedMessage,area);
+//    }
+
     @Then("the user views {string}")
     public void theUserViews(String expectedMessage) {
         viewsMessage(wait,expectedMessage);
@@ -59,4 +65,17 @@ public class MyStepdefs {
     public void theUserViewsErrorMessage(String expectedErrorMessage) {
         viewsErrorMessage(wait,expectedErrorMessage);
     }
+
+    @When("the user drags the {string} to {string}")
+    public void theUserDragsTheTo(String arg0, String arg1) throws InterruptedException {
+        dragAndDrop(driver,arg0,arg1);
+    }
+
+    @Then("the user view {string} message")
+    public void theUserViewMessage(String expectedMessage) throws InterruptedException {
+        viewMessage(wait,expectedMessage);
+
+    }
+
+
 }

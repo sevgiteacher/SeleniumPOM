@@ -11,8 +11,11 @@ public class LoginPage {
 
     public static WebElement element = null;
 
-    public static void navigate(WebDriver driver, String url) {
+    public static void navigate(WebDriver driver, String url) throws InterruptedException {
         driver.navigate().to(url);
+        driver.manage().window().maximize();
+//        driver.findElement(By.xpath("//*[@title='Accept Cookies']")).click();
+        Thread.sleep(2000);
     }
 
     public static void enterUserName(WebDriverWait wait, String userName) {

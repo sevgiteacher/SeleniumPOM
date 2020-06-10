@@ -22,3 +22,8 @@ Feature: CyclosBank login page
       |          | 1234     | Login name is required                                     |
       |          |          | Login name is required\nPassword is required               |
 
+# bu scenario calistirmadan once given daki cookie yi ac
+  Scenario: The user drags and drops an item
+    Given the user navigates to "https://demos.telerik.com/kendo-ui/dragdrop/index"
+    When the user drags the "draggable" to "droptarget"
+    Then the user view "You did great!" message
