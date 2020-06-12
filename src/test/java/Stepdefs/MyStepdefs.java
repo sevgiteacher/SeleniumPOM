@@ -14,6 +14,9 @@ import static Pages.LoginPage.*;
 import static Pages.WelcomePage.*;
 import static Pages.DragDropPage.*;
 import static Pages.ToolsQAPage.*;
+import static Pages.PayeUserPage.*;
+import static Pages.ReviewPaymentPage.*;
+import static Pages.TransferDetailsPage.*;
 
 public class MyStepdefs {
 
@@ -77,4 +80,48 @@ public class MyStepdefs {
     public void theUserSlidesTheSlider() {
         slides(driver);
     }
+
+    @And("the user clicks pay user")
+    public void theUserClicksPayUser() {
+        goToPayUser(wait);
+    }
+
+    @And("the user clicks Contact")
+    public void theUserClicksContact() {
+        clickContact(wait);
+    }
+
+    @And("the user selects Henry George from contact")
+    public void theUserSelectsHenryGeorgeFromContact() throws InterruptedException {
+        selectPayee(wait);
+    }
+
+
+    @And("the user enters {string} to amount area")
+    public void theUserEntersToAmountArea(String amount) {
+        enterAmountToPay(wait,amount);
+    }
+
+    @And("the user types {string} to description")
+    public void theUserTypesToDescription(String description) {
+        typeDescription(wait,description);
+    }
+
+    @And("the user clicks submit")
+    public void theUserClicksSubmit() throws InterruptedException {
+        clickSubmit(wait);
+    }
+
+    @And("the user clicks confirm")
+    public void theUserClicksConfirm() throws InterruptedException {
+        confirmPayment(wait);
+    }
+
+    @Then("the user views {string} on transfer page")
+    public void theUserViewsOnTransferPage(String expectedMessage) throws InterruptedException {
+       confirmPaymentSuccessfull(wait,expectedMessage);
+    }
+
+
+
 }

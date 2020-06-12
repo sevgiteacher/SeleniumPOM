@@ -17,4 +17,9 @@ public class WelcomePage {
         String actualMessage = element.getText();
         Assert.assertTrue(actualMessage.contains(expectedMessage));
     }
+
+    public static void goToPayUser(WebDriverWait wait){
+        element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[text()='Pay user']")));
+        element.click();
+    }
 }
