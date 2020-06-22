@@ -1,4 +1,6 @@
 Feature: CyclosBank login page
+
+  @Happy
   Scenario: The user logs in with a valid username and password
     Given the user navigates to "https://demo.cyclos.org/#login"
     When the user enters username "demo"
@@ -6,7 +8,7 @@ Feature: CyclosBank login page
     And the user clicks sign in button
     And the user clicks pay user
     And the user clicks Contact
-    And the user selects Henry George from contact
+    And the user selects "Henry George" from contact
     And the user enters "100" to amount area
     And the user types "haziran bursu, gule gule harca" to description
     And the user clicks submit
@@ -15,6 +17,7 @@ Feature: CyclosBank login page
 
 
 
+    @Sad
   Scenario Outline: The user cannot login with an invalid username and/or password
     Given the user navigates to "https://demo.cyclos.org/#login"
     When the user enters username "<username>"

@@ -91,8 +91,8 @@ public class MyStepdefs {
         clickContact(wait);
     }
 
-    @And("the user selects Henry George from contact")
-    public void theUserSelectsHenryGeorgeFromContact() throws InterruptedException {
+    @And("the user selects {string} from contact")
+    public void theUserSelectsFromContact(String arg0) throws InterruptedException {
         selectPayee(wait);
     }
 
