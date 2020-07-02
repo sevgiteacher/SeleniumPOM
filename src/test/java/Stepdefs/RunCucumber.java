@@ -10,9 +10,9 @@ import org.junit.runner.RunWith;
                 //  "de.monochromata.cucumber.report.PrettyReports:result/cucumber"},
         },
         features={"src/test/resources"},
-        glue = {"Steps"},
+        glue = {"Stepdefs"},
         monochrome = false,
-        tags = "@Sad"
+        tags = "@Happy"
 
 )
 
